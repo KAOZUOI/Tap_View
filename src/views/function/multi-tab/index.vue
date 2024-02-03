@@ -21,7 +21,10 @@ const draggingIndex = ref<number | null>(null);
 const handleFiles = (event: Event) => {
   const input = event.target as HTMLInputElement;
   if (!input.files) return;
-  for (let file of input.files) {
+  
+  const filesArray: File[] = Array.from(input.files); // Convert FileList to an array
+  
+  for (let file of filesArray) {
     const url = URL.createObjectURL(file);
     images.value.push({ url, file });
   }

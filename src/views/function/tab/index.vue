@@ -5,18 +5,8 @@ import { $t } from '@/locales';
 import { useTabStore } from '@/store/modules/tab';
 import axios from 'axios';
 
-const tabStore = useTabStore();
+useTabStore();
 const { routerPushByKey } = useRouterPush();
-
-const tabLabel = ref('');
-
-function changeTabLabel() {
-  tabStore.setTabLabel(tabLabel.value);
-}
-
-function resetTabLabel() {
-  tabStore.resetTabLabel();
-}
 
 const title = ref<string>('');
 const subtitle = ref<string>('');
